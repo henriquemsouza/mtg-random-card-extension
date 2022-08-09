@@ -1,0 +1,7 @@
+html,body {
+  min-width: 800px;
+  min-height: 600px;
+  margin: 0px;
+  background-color: rgb(182, 196, 196);
+  overflow: hidden !important;
+}
