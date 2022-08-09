@@ -3,28 +3,29 @@ export interface Cards {
   }
   
   export interface Card {
-    name: string
-    manaCost: string
-    cmc: number
-    colors: string[]
-    colorIdentity: string[]
+    name: string;
+    manaCost: string;
+    cmc: number;
+    colors: string[];
+    colorIdentity: string[];
     type: string
-    supertypes: string[]
-    types: string[]
-    subtypes: string[]
-    rarity: string
-    set: string
-    setName: string
-    text: string
-    artist: string
-    number: string
-    power: string
-    toughness: string
-    layout: string
-    rulings: Ruling[]
-    printings: string[]
-    legalities: Legality[]
-    id: string
+    supertypes: string[];
+    types: string[];
+    subtypes: string[];
+    rarity: string;
+    set: string;
+    setName: string;
+    text: string;
+    artist: string;
+    number: string;
+    power: string;
+    toughness: string;
+    layout: string;
+    rulings: Ruling[];
+    printings: string[];
+    legalities: Legality[];
+    id: string;
+    imageUrl: string;
   }
   
   export interface Ruling {
