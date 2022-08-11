@@ -6,12 +6,8 @@ import { InfoContainer } from "../components/styled/info-container.styles";
 import { MainContainer } from "../components/styled/main-container.styled";
 import { cardsInfo } from "../services/card-info.service";
 import { Card } from "../interfaces/card";
-import { SubTextWrapper } from "../components/styled/sub-text-wrapper.styles";
-import { TypeInfoComponent } from "../components/type-component";
-import { NameComponent } from "../components/name-component";
-import { PowerInfo } from "../components/powerInfo-component";
-import { ColorsComponent } from "../components/colors-component";
-import { TextComponent } from "../components/text-component";
+
+import { CardView } from "./view/card.view";
 
 const Home = () => {
   const [currentURL, setCurrentURL] = useState<string>();
@@ -34,33 +30,16 @@ const Home = () => {
     });
   };
 
-  const cardViewInfo = () => {
-    return (
-      <>
-        <NameComponent name={cardInfo?.name} />
-        <TypeInfoComponent
-          type={cardInfo?.type}
-          setName={cardInfo?.setName}
-          set={cardInfo?.set}
-        />
-        <ColorsComponent colors={cardInfo?.colors} />
-        <TextComponent text={cardInfo?.text} flavor={cardInfo?.flavor} />
-        <PowerInfo
-          power={cardInfo?.power}
-          toughness={cardInfo?.toughness}
-          rarity={cardInfo?.rarity}
-        />
-        <SubTextWrapper>{cardInfo?.artist}</SubTextWrapper>
-      </>
-    );
-  };
+
 
   return (
     <MainContainer>
       <ActionsWrapper>
         <GenericButton onClick={getCardInfo}>Random</GenericButton>
       </ActionsWrapper>
-      <InfoContainer>{cardInfo == null ? "" : cardViewInfo()}</InfoContainer>
+      <InfoContainer>
+        {cardInfo == null ? "" : CardView(cardInfo)}
+      </InfoContainer>
       <div>
         {image != "" ? <ImageContainer src={image}></ImageContainer> : ""}
       </div>

@@ -27,6 +27,7 @@ export interface Cards {
     id: string;
     imageUrl: string;
     flavor?: string;
+    foreignNames?: ForeignName[]
   }
   
   export interface Ruling {
@@ -37,5 +38,16 @@ export interface Cards {
   export interface Legality {
     format: string
     legality: string
+  }
+  
+
+  export interface ForeignName {
+    name: string
+    text: string
+    type: string
+    flavor: any
+    imageUrl: string
+    language: string
+    multiverseid: any
   }
   

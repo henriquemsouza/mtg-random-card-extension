@@ -6,7 +6,6 @@ export interface ColorsPropsInterface {
 }
 
 export const ColorsComponent = ({ colors }: ColorsPropsInterface) => {
-  console.log("colors", colors)
   return (
     <>
       <TypeComponentText>{colors?.join(", ")}</TypeComponentText>
