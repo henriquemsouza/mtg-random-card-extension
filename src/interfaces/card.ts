@@ -26,6 +26,7 @@ export interface Cards {
     legalities: Legality[];
     id: string;
     imageUrl: string;
+    flavor?: string;
   }
   
   export interface Ruling {

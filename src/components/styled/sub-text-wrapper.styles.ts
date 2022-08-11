@@ -7,6 +7,10 @@ export const SubTextWrapper = styled.p`
   margin-top: 0px !important;
 `;
 
+export const FlavorTextWrapper = styled(SubTextWrapper)`
+  margin-top: 10px !important;
+`;
+
 export const TypeComponentText = styled(SubTextWrapper)`
   margin-bottom: 10px !important;
 `;

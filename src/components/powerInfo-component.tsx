@@ -1,23 +1,16 @@
 import React from "react";
-import { TextWrapper } from "./styled/text.styles";
+import { PowerInfoText } from "./styled/text.styles";
 
 export interface PowerInfoInterface {
   power?: string;
   toughness?: string;
+  rarity?: string;
 }
 
-export const PowerInfo = ({ power, toughness }: PowerInfoInterface) => {
-  if ( power !== 'undefined' &&  toughness !== 'undefined') {
-    return (
-      <TextWrapper>
-        -----------------------{power}/{toughness}
-      </TextWrapper>
-    );
-  } else {
-    return (
-      <TextWrapper>
-        ------------------------
-      </TextWrapper>
-    )
-  }
+export const PowerInfo = ({ power, toughness, rarity }: PowerInfoInterface) => {
+  return (
+    <PowerInfoText>
+      {rarity}--------------------{power}/{toughness}
+    </PowerInfoText>
+  );
 };

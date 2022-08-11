@@ -6,3 +6,10 @@ export const TextWrapper = styled.p`
   margin-bottom: 0px !important;
   margin-top: 0px !important;
 `;
+
+
+export const PowerInfoText = styled(TextWrapper)`
+  font-size: 15px;
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
+`;
