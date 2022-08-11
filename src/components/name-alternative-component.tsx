@@ -1,10 +1,7 @@
 import React from "react";
-import { ForeignName } from "../interfaces/card";
+import { NameAlternativeProsInterface } from "../interfaces/name-alternative.interface";
 import { NameAlternativeText } from "./styled/text.styles";
 
-export interface NameAlternativeProsInterface {
-  foreignNames?: ForeignName[];
-}
 
 export const NameAlternativeComponent = ({
   foreignNames,

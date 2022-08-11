@@ -2,7 +2,7 @@ import { Cards } from "../interfaces/card";
 
 const basePatch = "https://api.magicthegathering.io/v1";
 
-const cardsInfo = async () => {
+const CardsInfo = async () => {
   const pageSize = 1;
   let responseRaw = await fetch(
     `${basePatch}/cards?pageSize=${pageSize}&random=true`
@@ -10,10 +10,7 @@ const cardsInfo = async () => {
     return res.json();
   });
 
-  console.log(responseRaw);
   const result = responseRaw as Cards;
-  result.cards[0].name;
-  console.log("name", result.cards[0].name);
 
   return result;
 };
@@ -28,10 +25,9 @@ const CardByName = async (name: string) => {
 
   console.log(responseRaw);
   const result = responseRaw as Cards;
-  result.cards[0].name;
-  console.log("name", result.cards[0].name);
+
 
   return result;
 };
 
-export { cardsInfo , CardByName};
+export { CardsInfo, CardByName };
