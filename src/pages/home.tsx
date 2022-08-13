@@ -10,20 +10,16 @@ import { Card } from "../interfaces/card";
 import { CardView } from "./view/card.view";
 import { TextFieldStyled } from "../components/styled/text-field.styles";
 import { CircularProgress } from "@material-ui/core";
+import { ExportCard } from "../services/downloader.service";
+import { ImgContainer } from "../components/styled/img-container.styles";
 
 const Home = () => {
-  const [currentURL, setCurrentURL] = useState<string>();
-
   const [image, setImage] = useState("");
   const [cardInfo, setCardInfo] = useState<Card>();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      setCurrentURL(tabs[0].url);
-    });
-  }, []);
+  useEffect(() => {}, []);
 
   const getCardInfo = () => {
     clearValues();
@@ -65,6 +61,16 @@ const Home = () => {
     return <CircularProgress />;
   };
 
+  const onClickExportCard = () => {
+    if (cardInfo) {
+      ExportCard(cardInfo);
+    }
+  };
+
+  const exportButton = () => {
+    return <GenericButton onClick={onClickExportCard}>Export</GenericButton>;
+  };
+
   return (
     <MainContainer>
       <ActionsWrapper>
@@ -75,15 +81,17 @@ const Home = () => {
           label="Search"
           onChange={onChangeInput}
         />
+
+        {cardInfo == null ? "" : exportButton()}
       </ActionsWrapper>
       <InfoContainer>
         {cardInfo == null ? "" : CardView(cardInfo)}
         {isLoading ? progress() : ""}
       </InfoContainer>
-      <div>
+      <ImgContainer>
         {image != "" ? <ImageContainer src={image}></ImageContainer> : ""}
         {isLoading ? progress() : ""}
-      </div>
+      </ImgContainer>
     </MainContainer>
   );
 };
