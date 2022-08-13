@@ -7,11 +7,25 @@
 MTG cards infos this extension,this project is not affiliated with WIZARDS OF THE COAST.
 
 
+## How to install:
+
+1. [Download the zip version](https://github.com/henriquemsouza/mtg-random-card-extension/releases)
+2. Extract into an easily accessible folder
+3. On Chrome:
+```
+1. Menu > More tools > Extensions
+2. Enable developer mode
+3. Load unpacked >  select the folder where the content was extracted
+```
+
+
+
+## How to run:
 
 ## Setup
 
 ```
-npm install
+yarn install
 ```
 
 
@@ -20,15 +34,14 @@ npm install
 ## Build
 
 ```
-npm run build
+yarn build
 ```
 
 ## Build in watch mode
 
-### terminal
 
 ```
-npm run watch
+yarn watch
 ```
 
 
