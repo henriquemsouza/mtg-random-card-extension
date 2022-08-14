@@ -1,6 +1,6 @@
 {
   "name": "mtg-random-card-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "display a random mtg card on click",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "@material-ui/icons": "^4.11.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "@types/chrome": "0.0.158",

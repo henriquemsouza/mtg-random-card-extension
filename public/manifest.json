@@ -3,7 +3,7 @@
 
   "name": "MTG RANDOM CARD",
   "description": "MTG cards infos this extension,this project is not affiliated with WIZARDS OF THE COAST.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   
   "options_ui": {
     "page": "options.html"

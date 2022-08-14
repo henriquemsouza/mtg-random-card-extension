@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { CircularProgress } from "@material-ui/core";
+
 import { ActionsWrapper } from "../components/styled/actions-wrapper.styles";
 import { GenericButton } from "../components/styled/generic-button.styled";
 import { ImageContainer } from "../components/styled/img.styled";
@@ -9,17 +11,26 @@ import { Card } from "../interfaces/card";
 
 import { CardView } from "./view/card.view";
 import { TextFieldStyled } from "../components/styled/text-field.styles";
-import { CircularProgress } from "@material-ui/core";
 import { ExportCard } from "../services/downloader.service";
 import { ImgContainer } from "../components/styled/img-container.styles";
+import { STORAGE_KEYS } from "../utils/storage/constants";
+import { Storage } from "../utils/storage/storage";
 
+const currentCardInfo = Storage.getData(STORAGE_KEYS.CURRENT_CARD);
 const Home = () => {
   const [image, setImage] = useState("");
   const [cardInfo, setCardInfo] = useState<Card>();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (currentCardInfo != undefined) {
+      let info = currentCardInfo as unknown as Card;
+
+      setCardInfo(info);
+      setImage(info.imageUrl);
+    }
+  }, []);
 
   const getCardInfo = () => {
     clearValues();
@@ -29,12 +40,14 @@ const Home = () => {
       setImage(card.imageUrl);
       setCardInfo(card);
       setIsLoading(false);
+      Storage.setData(STORAGE_KEYS.CURRENT_CARD, card);
     });
   };
 
   const clearValues = () => {
     setImage("");
     setCardInfo(undefined);
+    Storage.removeData(STORAGE_KEYS.CURRENT_CARD);
   };
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
